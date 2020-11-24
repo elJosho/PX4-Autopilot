@@ -34,6 +34,7 @@ px4_add_board(
 		pwm_out
 		px4io
 		tone_alarm
+		telemetry/frsky_telemetry
 	MODULES
 		#attitude_estimator_q
 		battery_status
