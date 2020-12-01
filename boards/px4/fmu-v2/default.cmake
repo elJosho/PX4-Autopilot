@@ -63,8 +63,9 @@ px4_add_board(
 		#roboclaw
 		#tap_esc
 		#telemetry # all available telemetry drivers
+		telemetry/frsky_telemetry
 		#test_ppm
-		tone_alarm
+		#tone_alarm
 		#uavcan
 	MODULES
 		airspeed_selector
