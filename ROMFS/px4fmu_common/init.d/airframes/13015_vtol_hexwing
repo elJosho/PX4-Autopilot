@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# @name "hexwing" tiltrotor VTOL flying wing
+#
+# @type VTOL Tiltrotor
+# @class VTOL
+#
+# @maintainer Josh Watt <jwdontwantspam@gmail.com>
+#
+# @output MAIN1 motor 1
+# @output MAIN2 motor 2
+# @output MAIN3 motor 3
+# @output MAIN4 motor 4
+# @output MAIN5 motor 5
+# @output MAIN6 motor 6
+# @output AUX1 Tilt servo
+# @output AUX2 Elevon 1
+# @output AUX3 Elevon 2
+#
+# @board intel_aerofc-v1 exclude
+# @board bitcraze_crazyflie exclude
+#
+
+
+. ${R}etc/init.d/rc.vtol_defaults
+
+if [ $AUTOCNF == yes ]
+then
+	param set VT_TYPE 1
+	param set VT_MOT_COUNT 6
+	param set VT_TRANS_THR 0.75
+	param set VT_FW_PERM_STAB 1
+	param set MC_ROLL_P 3.0
+	param set MC_ROLLRATE_P 0.15
+	param set MC_ROLLRATE_I 0.01
+	param set MC_ROLLRATE_D 0.003
+	param set MC_ROLLRATE_FF 0.0
+	param set MC_PITCH_P 3.0
+	param set MC_PITCHRATE_P 0.15
+	param set MC_PITCHRATE_I 0.01
+	param set MC_PITCHRATE_D 0.003
+	param set MC_PITCHRATE_FF 0.0
+	param set MC_YAW_P 0.5
+	param set MC_YAW_FF 0.5
+	param set MC_YAWRATE_P 0.1
+	param set MC_YAWRATE_I 0.1
+	param set MC_YAWRATE_D 0.0
+	param set MC_YAWRATE_FF 0.0
+	param set MC_YAWRATE_MAX 50
+	param set MC_YAWRAUTO_MAX 20
+	param set MPC_XY_P 0.8
+	param set MPC_XY_VEL_P 0.1
+	param set MPC_ACC_HOR_MAX 2.0
+	param set VT_IDLE_PWM_MC 1080
+	param set VT_FW_MOT_OFFID 245
+fi
+
+set MIXER hexa_+
+set PWM_OUT 123456
+set PWM_RATE 400
+set MIXER_AUX vtol_hexwing
+set PWM_AUX_DISARMED 950
+set MAV_TYPE 21
